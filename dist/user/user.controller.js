@@ -17,7 +17,7 @@ let UserController = class UserController {
         this.userService = userService;
     }
     async all() {
-        return await this.userService.all();
+        return this.userService.all();
     }
 };
 __decorate([
