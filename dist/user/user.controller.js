@@ -57,7 +57,7 @@ let UserController = class UserController {
             throw new common_1.BadRequestException('Password do not match !');
         }
         const id = await this.authService.userId(request);
-        const hashed = await bcrypt.hash('1234', 12);
+        const hashed = await bcrypt.hash(password, 12);
         await this.userService.update(id, { password: hashed });
         return this.userService.findOne({ id });
     }
