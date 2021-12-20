@@ -20,7 +20,7 @@ import { UserCreateDto } from './models/user-create.dto';
 import { AuthGuard } from 'src/auth/auth.guard';
 import { UserUpdateDto } from './models/user-update.dto';
 import { AuthService } from 'src/auth/auth.service';
-import { Request, response } from 'express';
+import { Request } from 'express';
 
 @UseGuards(AuthGuard)
 @UseInterceptors(ClassSerializerInterceptor)
@@ -65,10 +65,10 @@ export class UserController {
 
 
   @Put('password')
-  async udpatePassword(
+  async updatePassword(
     @Req() request: Request,
     @Body('password') password: string,
-    @Body('passowrd_confim') password_confirm: string,
+    @Body('password_confirm') password_confirm: string,
   ) {
     if (password !== password_confirm) {
       throw new BadRequestException('Password do not match !');

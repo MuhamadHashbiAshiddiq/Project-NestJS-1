@@ -52,7 +52,7 @@ let UserController = class UserController {
         await this.userService.update(id, body);
         return this.userService.findOne({ id });
     }
-    async udpatePassword(request, password, password_confirm) {
+    async updatePassword(request, password, password_confirm) {
         if (password !== password_confirm) {
             throw new common_1.BadRequestException('Password do not match !');
         }
@@ -103,11 +103,11 @@ __decorate([
     (0, common_1.Put)('password'),
     __param(0, (0, common_1.Req)()),
     __param(1, (0, common_1.Body)('password')),
-    __param(2, (0, common_1.Body)('passowrd_confim')),
+    __param(2, (0, common_1.Body)('password_confirm')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, String, String]),
     __metadata("design:returntype", Promise)
-], UserController.prototype, "udpatePassword", null);
+], UserController.prototype, "updatePassword", null);
 __decorate([
     (0, common_1.Put)(':id'),
     __param(0, (0, common_1.Param)('id')),

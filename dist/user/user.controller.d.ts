@@ -12,7 +12,7 @@ export declare class UserController {
     create(body: UserCreateDto): Promise<User>;
     get(id: number): Promise<any>;
     updateInfo(request: Request, body: UserUpdateDto): Promise<any>;
-    udpatePassword(request: Request, password: string, password_confirm: string): Promise<any>;
+    updatePassword(request: Request, password: string, password_confirm: string): Promise<any>;
     update(id: number, body: UserUpdateDto): Promise<any>;
     delete(id: number): Promise<any>;
 }
