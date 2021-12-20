@@ -35,7 +35,7 @@ let UserController = class UserController {
         this.userService = userService;
     }
     async all(page = 1) {
-        return this.userService.pageinate(page);
+        return this.userService.paginate(page, ['role']);
     }
     async create(body) {
         const password = await bcrypt.hash('1234', 12);
@@ -43,7 +43,7 @@ let UserController = class UserController {
         return this.userService.create(Object.assign(Object.assign({}, data), { password, role: { id: role_id } }));
     }
     async get(id) {
-        return this.userService.findOne({ id });
+        return this.userService.findOne({ id }, ['role']);
     }
     async update(id, body) {
         const { role_id } = body, data = __rest(body, ["role_id"]);
@@ -58,7 +58,7 @@ __decorate([
     (0, common_1.Get)(),
     __param(0, (0, common_1.Query)('page')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Number]),
+    __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
 ], UserController.prototype, "all", null);
 __decorate([
