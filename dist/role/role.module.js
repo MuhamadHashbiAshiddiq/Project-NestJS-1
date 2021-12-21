@@ -6,21 +6,22 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AuthModule = void 0;
-const common_module_1 = require("./../common/common.module");
+exports.RoleModule = void 0;
 const common_1 = require("@nestjs/common");
-const user_module_1 = require("../user/user.module");
-const auth_controller_1 = require("./auth.controller");
-let AuthModule = class AuthModule {
+const typeorm_1 = require("@nestjs/typeorm");
+const role_controller_1 = require("./role.controller");
+const role_service_1 = require("./role.service");
+const role_entity_1 = require("./role.entity");
+let RoleModule = class RoleModule {
 };
-AuthModule = __decorate([
+RoleModule = __decorate([
     (0, common_1.Module)({
         imports: [
-            (0, common_1.forwardRef)(() => user_module_1.UserModule),
-            common_module_1.CommonModule,
+            typeorm_1.TypeOrmModule.forFeature([role_entity_1.Role]),
         ],
-        controllers: [auth_controller_1.AuthController],
+        controllers: [role_controller_1.RoleController],
+        providers: [role_service_1.RoleService]
     })
-], AuthModule);
-exports.AuthModule = AuthModule;
-//# sourceMappingURL=auth.module.js.map
+], RoleModule);
+exports.RoleModule = RoleModule;
+//# sourceMappingURL=role.module.js.map
