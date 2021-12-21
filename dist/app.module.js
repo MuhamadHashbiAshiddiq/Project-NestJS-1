@@ -36,7 +36,7 @@ AppModule = __decorate([
             role_module_1.RoleModule,
             permission_module_1.PermissionModule,
             product_module_1.ProductModule,
-        ],
+        ]
     })
 ], AppModule);
 exports.AppModule = AppModule;
