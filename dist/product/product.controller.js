@@ -16,6 +16,7 @@ exports.ProductController = void 0;
 const common_1 = require("@nestjs/common");
 const auth_guard_1 = require("../auth/auth.guard");
 const product_create_dto_1 = require("./models/product-create.dto");
+const product_update_dto_1 = require("./models/product-update.dto");
 const product_service_1 = require("./product.service");
 let ProductController = class ProductController {
     constructor(productService) {
@@ -27,6 +28,16 @@ let ProductController = class ProductController {
     async create(body) {
         return this.productService.create(body);
     }
+    async get(id) {
+        return this.productService.findOne({ id });
+    }
+    async update(id, body) {
+        await this.productService.update(id, body);
+        return this.productService.findOne({ id });
+    }
+    async delete(id) {
+        return this.productService.delete(id);
+    }
 };
 __decorate([
     (0, common_1.Get)(),
@@ -37,11 +48,33 @@ __decorate([
 ], ProductController.prototype, "all", null);
 __decorate([
     (0, common_1.Post)(),
-    __param(0, common_1.Body),
+    __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [product_create_dto_1.ProductCreateDto]),
     __metadata("design:returntype", Promise)
 ], ProductController.prototype, "create", null);
+__decorate([
+    (0, common_1.Get)(':id'),
+    __param(0, (0, common_1.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number]),
+    __metadata("design:returntype", Promise)
+], ProductController.prototype, "get", null);
+__decorate([
+    (0, common_1.Put)(':id'),
+    __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number, product_update_dto_1.ProductUpdateDto]),
+    __metadata("design:returntype", Promise)
+], ProductController.prototype, "update", null);
+__decorate([
+    (0, common_1.Delete)(':id'),
+    __param(0, (0, common_1.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number]),
+    __metadata("design:returntype", Promise)
+], ProductController.prototype, "delete", null);
 ProductController = __decorate([
     (0, common_1.UseGuards)(auth_guard_1.AuthGuard),
     (0, common_1.Controller)('products'),
