@@ -10,6 +10,7 @@ import { AuthService } from './auth.service';
     CommonModule,
   ],
   controllers: [AuthController],
+
   providers: [AuthService],
   exports: [AuthService],
 })
