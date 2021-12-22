@@ -21,6 +21,7 @@ AuthModule = __decorate([
             common_module_1.CommonModule,
         ],
         controllers: [auth_controller_1.AuthController],
+
         providers: [auth_service_1.AuthService],
         exports: [auth_service_1.AuthService],
     })
