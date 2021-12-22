@@ -16,10 +16,10 @@ let AuthModule = class AuthModule {
 AuthModule = __decorate([
     (0, common_1.Module)({
         imports: [
-            user_module_1.UserModule,
-            common_module_1.CommonModule
+            (0, common_1.forwardRef)(() => user_module_1.UserModule),
+            common_module_1.CommonModule,
         ],
-        controllers: [auth_controller_1.AuthController]
+        controllers: [auth_controller_1.AuthController],
     })
 ], AuthModule);
 exports.AuthModule = AuthModule;
