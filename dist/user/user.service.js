@@ -35,7 +35,7 @@ let UserService = class UserService extends abstract_service_1.AbstractService {
         this.userRepository = userRepository;
     }
     async paginate(page = 1, relations = []) {
-        const { data, meta } = await super.paginate(page);
+        const { data, meta } = await super.paginate(page, relations);
         return {
             data: data.map((user) => {
                 const { password } = user, data = __rest(user, ["password"]);

@@ -51,6 +51,7 @@ export class RoleController {
     @Delete(':id')
     @HasPermission('roles')
     async delete(@Param('id') id:number){
+
       return this.roleService.delete(id);
     }
   }
