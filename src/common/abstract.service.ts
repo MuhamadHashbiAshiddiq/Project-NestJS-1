@@ -11,7 +11,7 @@ export abstract class AbstractService {
   }
 
   async all(relations = []): Promise<any[]> {
-    return this.repository.find();
+    return this.repository.find({relations});
   }
 
   async paginate(page = 1, relations = []): Promise<PaginatedResult> {
